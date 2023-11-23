@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="website icon" type="png" href="FPF2.png">
+    <title>Clubes</title>
+  </head>
+  <body>
+    <header>
+    <center>
+      <a href="FPF.html"><img src="champio.png" alt="menu" height="100" /></a>
+      <h1>Champions League Principais times</h1>
+    </center>
+    </header>
+    
+    <ul id="lista-times"></ul>
+    
+    
+    <style>
+      h1 {
+        text-align: center;
+        font-size: 24px;
+        margin-top: 20px;
+        
+      }
+
+      /* Estilos para a lista de times */
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        
+      }
+
+      li {
+        background-color: #707070;
+        border: 5px solid rgb(0, 0, 0);
+        padding: 10px;
+        margin: 10px;
+        border-radius: 5px;
+        box-shadow: 0 0 5px hwb(0 4% 96%);
+      }
+
+      /* Estilos para os elementos da lista */
+      li:hover {
+        background-color: #2b0ecd;
+        cursor: pointer;
+      }
+
+      /* Estilos para o link */
+      a {
+        text-decoration: none;
+        color: #f2f2f22f;
+        font-weight: bold;
+      }
+
+      /* Estilos para os links quando hover */
+      a:hover {
+        color: #0e0303;
+      }
+    
+      header {
+    width: 96%;
+    background-color: #2101b0;
+    padding: 25px;
+    text-align: center;
+}
+
+header h1 {
+    color: rgb(3, 20, 255);
+}
+
+    
+    </style>
+  </body>
+  <script>
+    const database = [
+      { id: 1, nome: "Real Madrid", Presidente: "Florentino Pérez", Estadio: "Santiago Bernabéu" },
+      { id: 2, nome: "Milan", Presidente: "Paolo Scaroni", Estadio: "Giuseppe Meazza" },
+      { id: 3, nome: "Liverpool", Presidente: "Tom Werner", Estadio: "Anfield" },
+      { id: 4, nome: "Bayern de Munique", Presidente: "Jan-Christian Dreesen", Estadio: "Allianz Arena" },
+      
+    ];
+
+    function exibirTimes() {
+      const listaTimes = document.getElementById("lista-times");
+
+      // Limpar a lista antes de adicionarmos os times novamente
+      listaTimes.innerHTML = "";
+
+      // Iterar sobre o array de times e criar elementos <li> para cada time
+      for (const time of database) {
+        const itemLista = document.createElement("li");
+        itemLista.textContent = `Nome: ${time.nome}, Presidente: ${time.Presidente}, Situação: ${time.situacao}`;
+        listaTimes.appendChild(itemLista);
+      }
+    }
+
+    // Chamamos a função para exibir os times quando a página carregar
+    window.addEventListener("load", exibirTimes);
+  </script>
+</html>

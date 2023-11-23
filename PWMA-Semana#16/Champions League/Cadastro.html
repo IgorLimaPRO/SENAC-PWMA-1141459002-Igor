@@ -1,0 +1,116 @@
+<html>
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: url("2.jpg");
+      
+    }
+
+    h1 {
+      text-align: center;
+      color: blue
+    }
+
+    h2 {
+      margin-top: 40px;
+      color: blue
+    }
+
+    form {
+      width: 300px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 10px white
+    }
+
+    label,
+    input,
+    button {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    input,
+    button {
+      width: 100%;
+      padding: 8px;
+      border-radius: 3px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background-color: #007bff;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+<script>
+function login (email, senha) {
+  
+  if (email && senha) {
+    
+    let dados = localStorage.getItem (email);
+    if (dados) {
+      
+      let [senhaSalva, ] = dados.split ;
+      
+      if (senhaSalva === senha) {
+        
+        alert ('Login realizado com sucesso!');
+      } else {
+       
+        alert ('Senha incorreta!');
+      }
+    } else {
+      
+      alert ('Email não cadastrado!');
+    }
+  } else {
+    
+    alert ('Por favor, informe o email e a senha!');
+  }
+}
+
+function registrar (email, senha) {
+  
+  if (email && senha ) {
+    
+    localStorage.setItem (email, senha   );
+    
+    alert ('Cadastro realizado com sucesso!');
+  } else {
+   
+    alert ('Por favor, informe o email, a senha e a morada!');
+  }
+}
+</script>
+</head>
+<body>
+<h1>LocalStorage de Login e Senha</h1>
+<h2>Login</h2>
+<form onsubmit="login (this.email.value, this.senha.value); return false;">
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email" required>
+  <label for="senha">Senha:</label>
+  <input type="password" id="senha" name="senha" required>
+  <button type="submit">Entrar</button>
+</form>
+<h2>Registro</h2>
+<form onsubmit="registrar (this.email.value, this.senha.value); return false;">
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email" required>
+  <label for="senha">Senha:</label>
+  <input type="password" id="senha" name="senha" required>
+  <button type="submit">Cadastrar</button>
+</form>
+</body>
+</html>
